@@ -1,1 +1,1 @@
-# odoo-docker-postgresql
+# Odoo Docker PostgreSQL
