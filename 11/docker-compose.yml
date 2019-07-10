@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  db:
+    image: postgres:11
+    container_name: postgres-db
+    ports:
+      - "127.0.0.1:6432:5432"   # postgresql
+    
+    environment:
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
+
+    volumes:
+      # postgres shared config files
+      - ./postgres-db-data:/var/lib/postgresql/data/pgdata
+
+    # https://docs.docker.com/engine/reference/run/#restart-policies-restart
+    restart: always
+
+volumes:
+  postgres-db-data:
+    external: false
